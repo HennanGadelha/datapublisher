@@ -1,0 +1,13 @@
+micronaut:
+  application:
+    name: datapublisher
+api-flask:
+  url:  http://4003-34-125-225-204.ngrok.io
+netty:
+  default:
+    allocator:
+      max-order: 3
+endpoints:
+  liquibase:
+    enabled: true
+    sensitive: false

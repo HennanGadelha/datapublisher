@@ -1,0 +1,196 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 165675008 bytes for Failed to commit area from 0x0000000763400000 to 0x000000076d200000 of length 165675008.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3273), pid=14864, tid=5716
+#
+# JRE version:  (11.0.10+8) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.0.10+8-LTS-162, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.1.1\lib\idea_rt.jar=62513:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.1.1\bin -Dfile.encoding=UTF-8 com.datapublisher.ApplicationKt
+
+Host: Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz, 4 cores, 9G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1706)
+Time: Sun Jun  5 17:41:55 2022 Hora oficial do Brasil elapsed time: 0.024174 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000014e99461000):  JavaThread "Unknown thread" [_thread_in_vm, id=5716, stack(0x0000001a4ba00000,0x0000001a4bb00000)]
+
+Stack: [0x0000001a4ba00000,0x0000001a4bb00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x613e6a]
+V  [jvm.dll+0x74c1ff]
+V  [jvm.dll+0x74d885]
+V  [jvm.dll+0x74df03]
+V  [jvm.dll+0x243b78]
+V  [jvm.dll+0x61125a]
+V  [jvm.dll+0x606165]
+V  [jvm.dll+0x2f85fc]
+V  [jvm.dll+0x2f8482]
+V  [jvm.dll+0x2fd136]
+V  [jvm.dll+0x33f6bf]
+V  [jvm.dll+0x33f0f0]
+V  [jvm.dll+0x2d5d08]
+V  [jvm.dll+0x2d6e66]
+V  [jvm.dll+0x727d17]
+V  [jvm.dll+0x7295bf]
+V  [jvm.dll+0x34c4a9]
+V  [jvm.dll+0x70d6b0]
+V  [jvm.dll+0x3b584f]
+V  [jvm.dll+0x3b7951]
+C  [jli.dll+0x520b]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x52651]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000014e9935f640, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000014e99478000 GCTaskThread "GC Thread#0" [stack: 0x0000001a4bb00000,0x0000001a4bc00000] [id=16584]
+  0x0000014e994b2000 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000001a4bc00000,0x0000001a4bd00000] [id=10440]
+  0x0000014e994b4800 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000001a4bd00000,0x0000001a4be00000] [id=7516]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffd9d2f4f57]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000014e9945d210] Heap_lock - owner thread: 0x0000014e99461000
+
+Heap address: 0x0000000763400000, size: 2508 MB, Compressed Oops mode: Non-zero based: 0x0000000763400000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6f0310000 - 0x00007ff6f031f000 	C:\Program Files\Java\jdk-11.0.10\bin\java.exe
+0x00007ffe125b0000 - 0x00007ffe127a5000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffddd650000 - 0x00007ffddd666000 	C:\Program Files\Avast Software\Avast\aswhook.dll
+0x00007ffe108e0000 - 0x00007ffe1099d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffe0fe50000 - 0x00007ffe1011d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffe0fd50000 - 0x00007ffe0fe50000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffdf8f80000 - 0x00007ffdf8f95000 	C:\Program Files\Java\jdk-11.0.10\bin\VCRUNTIME140.dll
+0x00007ffdf8fa0000 - 0x00007ffdf8fb8000 	C:\Program Files\Java\jdk-11.0.10\bin\jli.dll
+0x00007ffe109a0000 - 0x00007ffe10a4e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffe11860000 - 0x00007ffe118fe000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffe121b0000 - 0x00007ffe1224c000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffe12410000 - 0x00007ffe12535000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffe10660000 - 0x00007ffe10800000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffe10480000 - 0x00007ffe104a2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffe12540000 - 0x00007ffe1256a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffdf84b0000 - 0x00007ffdf874a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffe10550000 - 0x00007ffe1065b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffe104b0000 - 0x00007ffe1054d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffe09df0000 - 0x00007ffe09dfa000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe10d30000 - 0x00007ffe10d60000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffdf8ee0000 - 0x00007ffdf8f7b000 	C:\Program Files\Java\jdk-11.0.10\bin\msvcp140.dll
+0x00007ffd9d010000 - 0x00007ffd9db0b000 	C:\Program Files\Java\jdk-11.0.10\bin\server\jvm.dll
+0x00007ffe12250000 - 0x00007ffe12258000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffdfc0c0000 - 0x00007ffdfc0e7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffe04200000 - 0x00007ffe04209000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffe122c0000 - 0x00007ffe1232b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffe0dc00000 - 0x00007ffe0dc12000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffdf8ed0000 - 0x00007ffdf8ee0000 	C:\Program Files\Java\jdk-11.0.10\bin\verify.dll
+0x00007ffe09630000 - 0x00007ffe09814000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffe08e60000 - 0x00007ffe08e8c000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffe103f0000 - 0x00007ffe10472000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffdf8ea0000 - 0x00007ffdf8ec8000 	C:\Program Files\Java\jdk-11.0.10\bin\java.dll
+0x00007ffdf87b0000 - 0x00007ffdf87ba000 	C:\Program Files\Java\jdk-11.0.10\bin\jimage.dll
+0x00007ffe04dc0000 - 0x00007ffe04dce000 	C:\Program Files\Java\jdk-11.0.10\bin\instrument.dll
+0x00007ffdf8750000 - 0x00007ffdf8766000 	C:\Program Files\Java\jdk-11.0.10\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-11.0.10\bin;C:\WINDOWS\SYSTEM32;C:\Program Files\Avast Software\Avast;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\Program Files\Java\jdk-11.0.10\bin\server
+
+VM Arguments:
+jvm_args: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.1.1\lib\idea_rt.jar=62513:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.1.1\bin -Dfile.encoding=UTF-8 
+java_command: com.datapublisher.ApplicationKt
+java_class_path (initial): C:\Users\henna\Downloads\tcc\datapublisher\datapublisher\build\classes\kotlin\main;C:\Users\henna\Downloads\tcc\datapublisher\datapublisher\build\tmp\kapt3\classes\main;C:\Users\henna\Downloads\tcc\datapublisher\datapublisher\build\resources\main;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut.liquibase\micronaut-liquibase\5.3.0\5e2dbfa26a0b05ca425a5fb9536e4576262159b3\micronaut-liquibase-5.3.0.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut\micronaut-validation\3.5.0\c2daa4f373f1ab03a58beff2a474d1ac65bbe10\micronaut-validation-3.5.0.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut.kotlin\micronaut-kotlin-runtime\3.2.2\382ffda2eaea759412e95e58c1abd6bfbe5d4115\micronaut-kotlin-runtime-3.2.2.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut.reactor\micronaut-reactor-http-client\2.2.2\7c93e3bd45f61fb8865a2948c6dcdf6f2ebc7f9b\micronaut-reactor-http-client-2.2.2.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut.reactor\micronaut-reactor\2.2.2\370ff90bde401101b137cbbeef5025ca99561b36\micronaut-reactor-2.2.2.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut.rxjava2\micronaut-rxjava2\1.2.1\6b5a8939d46088bb94172959f19340633d0024e6\micronaut-rxjava2-1.2.1.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut.sql\micronaut-jdbc-hikari\4.4.0\2c9cabb246c93dd334b0e2ecc6dfe6584efb1e06\micronaut-jdbc-hikari-4.4.0.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut.sql\micronaut-vertx-pg-client\4.4.0\6b45dd8c4bbeb91267c3c57e2daab60bd5c1a1f2\micronaut-vertx-pg-client-4.4.0.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut\micronaut-http-client\3.5.0\4bbdd31520bff51a25cd9d8322175bbb5e807fce\micronaut-http-client-3.5.0.jar;C:\Users\henna\.gradle\caches\modules-2\files-2.1\io.micronaut\micronaut-http-server-netty\3.5.0\69e7207f26fce478c77a433bb1a802e4fc27f041\micronaut-http-server-netty-3.5.0.jar;C:\Users\henna\.
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 165675008                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2629828608                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5830732                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122913754                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122913754                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-11.0.10
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-11.0.10\bin;C:\WINDOWS\System32\OpenSSH\;E:\Projetos\OT\Propostas\orange-talents-05-template-proposta\target;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;E:\Programas\Microsoft VS Code\bin;C:\Users\henna\AppData\Roaming\npm;C:\Users\henna\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin;E:\Projetos\OT\Propostas\orange-talents-05-template-proposta\target;
+USERNAME=henna
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.1706)
+Hyper-V role detected
+
+CPU:total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 58 stepping 9 microcode 0x21, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, tsc, tscinvbit, tscinv
+
+Memory: 4k page, system-wide physical 10028M (477M free)
+TotalPageFile size 13595M (AvailPageFile size 12M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 52M, peak: 209M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.0.10+8-LTS-162) for windows-amd64 JRE (11.0.10+8-LTS-162), built on Dec  8 2020 16:32:57 by "mach5one" with MS VC++ 15.9 (VS2017)
+
+END.
