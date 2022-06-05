@@ -6,7 +6,7 @@ CREATE TABLE chamados (
     ano INT,
     mes TEXT,
     processo_numero TEXT,
-    solicitcao_data TEXT,
+    solicitacao_data TEXT,
     solicitacao_hora TEXT,
     solicitacao_descricao TEXT,
     solicitacao_regional  TEXT,
