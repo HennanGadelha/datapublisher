@@ -1,5 +1,6 @@
 package com.datapublisher.integration
 
+import com.datapublisher.ChamadoBussiness
 import com.datapublisher.config.DataPublisherLogger
 import com.datapublisher.config.logger
 import com.datapublisher.integration.dto.ChamadosResponse
@@ -17,7 +18,7 @@ class PlataformFlaskApi(private val client: ReactorHttpClient) : FlaskApi, DataP
 
     @Value("\${api..url}")
     private lateinit var endpoint: String
-    override suspend fun listarTodosChamados(): List<ChamadosResponse>? {
+    override suspend fun listarTodosChamados():  List<ChamadosResponse>? {
         val url = endpoint
         logger().info("Retrieve called information at: {}", url)
         val request = HttpRequest.GET<Unit>(url)

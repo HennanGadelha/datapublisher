@@ -6,7 +6,7 @@ class ChamadoService(private val flaskApi: FlaskApi) {
 
     suspend fun persistirChamados(){
         val listaDeChamados = flaskApi.listarTodosChamados()
-        println(listaDeChamados)
+        println("lista de chamados: " + listaDeChamados)
     }
 
 }

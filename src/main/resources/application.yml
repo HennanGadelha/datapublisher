@@ -2,7 +2,7 @@ micronaut:
   application:
     name: datapublisher
 api-flask:
-  url:  http://4003-34-125-225-204.ngrok.io
+  url:  https://8023-35-245-12-26.ngrok.io/resumo
 netty:
   default:
     allocator:
