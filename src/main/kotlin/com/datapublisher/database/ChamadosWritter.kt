@@ -7,10 +7,18 @@ import io.reactivex.Single
 import io.vertx.reactivex.pgclient.PgPool
 import io.vertx.reactivex.sqlclient.Tuple
 import jakarta.inject.Inject
+import jakarta.inject.Singleton
 
+@Singleton
 class ChamadosWritter(@Inject val db: PgPool) : DataPublisherLogger {
 
-    fun insert(chamado: ChamadoBussiness) : Single<Boolean>{
+
+    fun insertAll(chamados: List<ChamadoBussiness>) {
+        chamados.map { chamado
+            -> this.insert(chamado) }
+    }
+
+    private fun insert(chamado: ChamadoBussiness) : Single<Boolean>{
 
         val params = arrayOf(
             chamado.id,

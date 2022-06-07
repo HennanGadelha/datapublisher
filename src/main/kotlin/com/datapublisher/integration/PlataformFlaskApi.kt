@@ -6,22 +6,24 @@ import com.datapublisher.config.logger
 import com.datapublisher.integration.dto.ChamadosResponse
 import io.micronaut.context.annotation.Value
 import io.micronaut.http.HttpRequest
+import io.micronaut.http.MediaType
 import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.reactor.http.client.ReactorHttpClient
 import jakarta.inject.Singleton
 import kotlinx.coroutines.reactive.awaitSingle
+import kotlinx.coroutines.reactive.collect
 import java.time.Duration
 import java.time.Instant
 
 @Singleton
 class PlataformFlaskApi(private val client: ReactorHttpClient) : FlaskApi, DataPublisherLogger {
 
-    @Value("\${api..url}")
+    @Value("\${api-flask.url}")
     private lateinit var endpoint: String
-    override suspend fun listarTodosChamados():  List<ChamadosResponse>? {
+    override suspend fun listarTodosChamados(): List<ChamadosResponse>? {
         val url = endpoint
         logger().info("Retrieve called information at: {}", url)
-        val request = HttpRequest.GET<Unit>(url)
+        val request = HttpRequest.GET<Unit>(url).accept(MediaType.ALL_TYPE)
         val start = Instant.now()
         try {
             return client.retrieve(request, ChamadosResponse::class.java)
@@ -29,7 +31,7 @@ class PlataformFlaskApi(private val client: ReactorHttpClient) : FlaskApi, DataP
                 .onErrorMap(HttpClientResponseException::class.java) { responseError ->
                     val body = responseError.response.getBody(String::class.java).get()
                     RetrieveFlaskApiException(
-                        "Error retrieving flask api Status: ${responseError.status.code}, response: $body",
+                        "Error retrieving flask api Status: ${responseError.status.code}, response -> $body",
                         responseError
                     )
                 }.doFinally { signal ->

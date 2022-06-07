@@ -1,13 +1,33 @@
 micronaut:
   application:
     name: datapublisher
+    server:
+      max-request-size: 10GB
+      multipart:
+        max-file-size: XXXMB
+        mixed: true
+        disk: true
+        location: /tmp
+
 api-flask:
-  url:  https://8023-35-245-12-26.ngrok.io/resumo
+  url:  http://2bf8-34-148-132-245.ngrok.io/
+
 netty:
   default:
     allocator:
       max-order: 3
+
 endpoints:
   liquibase:
     enabled: true
     sensitive: false
+
+vertx:
+  pg:
+    client:
+      port: 5432
+      host: localhost
+      database: api_dados_database_local
+      user: apidados_user
+      password: apidados_password
+      maxSize: 5
