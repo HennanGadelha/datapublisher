@@ -20,13 +20,13 @@ class PlataformFlaskApi(private val client: ReactorHttpClient) : FlaskApi, DataP
 
     @Value("\${api-flask.url}")
     private lateinit var endpoint: String
-    override suspend fun listarTodosChamados(): List<ChamadosResponse>? {
+    override suspend fun listarTodosChamados(): Array<ChamadosResponse>? {
         val url = endpoint
         logger().info("Retrieve called information at: {}", url)
         val request = HttpRequest.GET<Unit>(url).accept(MediaType.ALL_TYPE)
         val start = Instant.now()
         try {
-            return client.retrieve(request, ChamadosResponse::class.java)
+            return arrayOf(client.retrieve(request, ChamadosResponse::class.java)
                 .retry(2)
                 .onErrorMap(HttpClientResponseException::class.java) { responseError ->
                     val body = responseError.response.getBody(String::class.java).get()
@@ -40,7 +40,8 @@ class PlataformFlaskApi(private val client: ReactorHttpClient) : FlaskApi, DataP
                         signal,
                         Duration.between(start, Instant.now()).toMillis()
                     )
-                }.collectList().awaitSingle()
+                }.awaitSingle()
+            )
         } catch (ex: Exception) {
             logger().warn("Error retrieving flask api, ignoring", ex)
             return null

@@ -10,7 +10,7 @@ micronaut:
         location: /tmp
 
 api-flask:
-  url:  http://2bf8-34-148-132-245.ngrok.io/
+  url:  http://570a-34-83-77-16.ngrok.io/
 
 netty:
   default:
@@ -31,3 +31,4 @@ vertx:
       user: apidados_user
       password: apidados_password
       maxSize: 5
+micronaut.codec.json.additionalTypes: ["text/html"]

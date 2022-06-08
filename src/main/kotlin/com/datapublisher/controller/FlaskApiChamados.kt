@@ -1,6 +1,5 @@
 package com.datapublisher.controller
 
-import com.datapublisher.ChamadoBussiness
 import com.datapublisher.ChamadoService
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Consumes
