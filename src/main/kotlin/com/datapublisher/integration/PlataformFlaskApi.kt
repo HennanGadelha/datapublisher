@@ -10,23 +10,26 @@ import io.micronaut.http.MediaType
 import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.reactor.http.client.ReactorHttpClient
 import jakarta.inject.Singleton
+import kotlinx.coroutines.reactive.awaitFirst
 import kotlinx.coroutines.reactive.awaitSingle
 import kotlinx.coroutines.reactive.collect
 import java.time.Duration
 import java.time.Instant
+import io.micronaut.core.type.Argument;
 
 @Singleton
 class PlataformFlaskApi(private val client: ReactorHttpClient) : FlaskApi, DataPublisherLogger {
 
     @Value("\${api-flask.url}")
     private lateinit var endpoint: String
-    override suspend fun listarTodosChamados(): Array<ChamadosResponse>? {
+    override suspend fun listarTodosChamados(): List<ChamadosResponse>? {
         val url = endpoint
         logger().info("Retrieve called information at: {}", url)
         val request = HttpRequest.GET<Unit>(url).accept(MediaType.ALL_TYPE)
         val start = Instant.now()
         try {
-            return arrayOf(client.retrieve(request, ChamadosResponse::class.java)
+            val chamados: List<ChamadosResponse> = ArrayList<ChamadosResponse>()
+            return client.retrieve(request, chamados::class.java)
                 .retry(2)
                 .onErrorMap(HttpClientResponseException::class.java) { responseError ->
                     val body = responseError.response.getBody(String::class.java).get()
@@ -40,8 +43,8 @@ class PlataformFlaskApi(private val client: ReactorHttpClient) : FlaskApi, DataP
                         signal,
                         Duration.between(start, Instant.now()).toMillis()
                     )
-                }.awaitSingle()
-            )
+                }.awaitFirst()
+
         } catch (ex: Exception) {
             logger().warn("Error retrieving flask api, ignoring", ex)
             return null

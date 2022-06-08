@@ -18,7 +18,7 @@ class ChamadosWritter(@Inject val db: PgPool) : DataPublisherLogger {
             -> this.insert(chamado) }
     }
 
-    private fun insert(chamado: ChamadoBussiness) : Single<Boolean>{
+    fun insert(chamado: ChamadoBussiness) : Single<Boolean>{
 
         val params = arrayOf(
             chamado.id,
@@ -48,9 +48,9 @@ class ChamadosWritter(@Inject val db: PgPool) : DataPublisherLogger {
         val sql = "INSERT INTO chamados " +
                 "(id, ano, mes, processo_numero, solicitacao_data, solicitacao_hora, solicitacao_descricao, " +
                 "solicitacao_regional, solicitacao_bairro, solicitacao_localidade, solicitacao_endereco, " +
-                "solicitacao_roteiro, rpa_codigo, rpa_nome, solicitacao_microregiao, solicitacao_plantao " +
-                "solicitacao_situacao, processo_tipo, processo_origem, solicitcao_lonas_plasticas, " +
-                "solicitcao_vistorias, endereco)" +
+                "solicitacao_roteiro, rpa_codigo, rpa_nome, solicitacao_microregiao, solicitacao_plantao, " +
+                "processo_situacao, processo_tipo, processo_origem, solicitacao_lonas_plasticas, " +
+                "solicitacao_vistorias, endereco)" +
                 "VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, " +
                 "$14, $15, $16, $17, $18, $19, $20, $21, $22)"
 

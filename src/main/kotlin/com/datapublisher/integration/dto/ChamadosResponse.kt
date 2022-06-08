@@ -1,6 +1,65 @@
 package com.datapublisher.integration.dto
 
 import com.datapublisher.ChamadoBussiness
+import com.fasterxml.jackson.core.JsonParser
+import com.fasterxml.jackson.databind.DeserializationContext
+import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer
+import java.util.*
+
+//class ChamadosResponseDeserializer : StdDeserializer<ChamadosResponse>(ChamadosResponse::class.java) {
+//    override fun deserialize(jp: JsonParser?, ctxt: DeserializationContext?): ChamadosResponse {
+//        val node: JsonNode = jp!!.codec.readTree(jp)
+//        val ano: Int = (node.get("ano")).asInt()
+//        val mes: String = (node.get("mes")).asText()
+//        val processo_numero = (node.get("processo_numero")).asDouble()
+//        val solicitacao_data = (node.get("solicitacao_data")).asText()
+//        val solicitacao_hora = (node.get("solicitacao_hora")).asText()
+//        val solicitacao_descricao = (node.get("solicitacao_descricao")).asText()
+//        val solicitacao_regional = (node.get("solicitacao_regional")).asText()
+//        val solicitacao_bairro = (node.get("solicitacao_bairro")).asText()
+//        val solicitacao_localidade = (node.get("solicitacao_localidade")).asText()
+//        val solicitacao_endereco = (node.get("solicitacao_endereco")).asText()
+//        val solicitacao_roteiro = (node.get("solicitacao_roteiro")).asText()
+//        val rpa_codigo = (node.get("rpa_codigo")).asText()
+//        val rpa_nome = (node.get("rpa_nome")).asText()
+//        val solicitacao_microregiao = (node.get("solicitacao_microregiao")).asText()
+//        val solicitacao_plantao  = (node.get("solicitacao_plantao")).asText()
+//        val processo_situacao  = (node.get("processo_situacao")).asText()
+//        val processo_tipo = (node.get("processo_tipo")).asText()
+//        val processo_origem = (node.get("processo_origem")).asText()
+//        val processo_solicitacao_colocacao_de_lonas_plasticas = (node.get("processo_solicitacao_colocacao_de_lonas_plasticas")).asInt()
+//        val processo_solicitacao_vistoria = (node.get("processo_solicitacao_vistoria")).asText()
+//        val endUnico = (node.get("endUnico")).asText()
+//
+//        return ChamadosResponse(
+//            ano = ano,
+//            mes = mes,
+//            processo_numero = processo_numero,
+//            solicitacao_data = solicitacao_data,
+//            solicitacao_hora = solicitacao_hora,
+//            solicitacao_descricao = solicitacao_descricao,
+//            solicitacao_regional = solicitacao_regional,
+//            solicitacao_bairro = solicitacao_bairro,
+//            solicitacao_localidade = solicitacao_localidade,
+//            solicitacao_endereco = solicitacao_endereco,
+//            solicitacao_roteiro = solicitacao_roteiro,
+//            rpa_codigo = rpa_codigo,
+//            rpa_nome = rpa_nome,
+//            solicitacao_microregiao = solicitacao_microregiao,
+//            solicitacao_plantao = solicitacao_plantao,
+//            processo_situacao = processo_situacao,
+//            processo_tipo = processo_tipo,
+//            processo_origem = processo_origem,
+//            processo_solicitacao_colocacao_de_lonas_plasticas = processo_solicitacao_colocacao_de_lonas_plasticas,
+//            processo_solicitacao_vistoria =  processo_solicitacao_vistoria,
+//            endUnico = endUnico
+//        )
+//    }
+//}
+//
+//@JsonDeserialize(using = ChamadosResponseDeserializer::class)
 
 data class ChamadosResponse(
     val ano: Int,

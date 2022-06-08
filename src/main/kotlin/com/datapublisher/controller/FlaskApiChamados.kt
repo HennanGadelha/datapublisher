@@ -12,7 +12,6 @@ class FlaskApiChamados(@Inject private val service: ChamadoService) {
 
     @Consumes(MediaType.ALL)
     @Get("/")
-    suspend fun recuperarChamadosFlask() {
-        service.persistirChamados()
-    }
+    suspend fun recuperarChamadosFlask() = service.persistirChamados()
+
 }

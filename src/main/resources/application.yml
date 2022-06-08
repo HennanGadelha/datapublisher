@@ -10,7 +10,7 @@ micronaut:
         location: /tmp
 
 api-flask:
-  url:  http://570a-34-83-77-16.ngrok.io/
+  url:  http://5380-34-83-77-16.ngrok.io/
 
 netty:
   default:

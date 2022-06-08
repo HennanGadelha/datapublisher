@@ -4,5 +4,5 @@ import com.datapublisher.integration.dto.ChamadosResponse
 
 interface FlaskApi {
 
-    suspend fun listarTodosChamados() : Array<ChamadosResponse>?
+    suspend fun listarTodosChamados() : List<ChamadosResponse>?
 }
