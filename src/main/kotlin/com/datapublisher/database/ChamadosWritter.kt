@@ -3,6 +3,7 @@ package com.datapublisher.database
 import com.datapublisher.ChamadoBussiness
 import com.datapublisher.config.DataPublisherLogger
 import com.datapublisher.config.logger
+import com.datapublisher.integration.dto.ChamadosResponse
 import io.reactivex.Single
 import io.vertx.reactivex.pgclient.PgPool
 import io.vertx.reactivex.sqlclient.Tuple
@@ -13,35 +14,35 @@ import jakarta.inject.Singleton
 class ChamadosWritter(@Inject val db: PgPool) : DataPublisherLogger {
 
 
-    fun insertAll(chamados: List<ChamadoBussiness>) {
-        chamados.map { chamado
-            -> this.insert(chamado) }
-    }
+//    fun insertAll(chamados: List<ChamadoBussiness>) {
+//        chamados.map { chamado
+//            -> this.insert(chamado) }
+//    }
 
-    fun insert(chamado: ChamadoBussiness) : Single<Boolean>{
+    fun insert(chamado: ChamadosResponse) : Single<Boolean>{
 
         val params = arrayOf(
             chamado.id,
             chamado.ano,
             chamado.mes,
-            chamado.processoNumero,
-            chamado.solicitacaoData,
-            chamado.solicitacaoHora,
-            chamado.solicitacaoDescricao,
-            chamado.solicitacaoRegional,
-            chamado.solicitacaoBairro,
-            chamado.solicitacaoLocalidade,
-            chamado.solicitacaoEndereco,
-            chamado.solicitacaoRoteiro,
-            chamado.rpaCodigo,
-            chamado.rpaNome,
-            chamado.solicitacaoMicroregiao,
-            chamado.solicitacaoPlantao,
-            chamado.solicitacaoSituacao,
-            chamado.processoTipo,
-            chamado.processoOrigem,
-            chamado.processoSolicitacaoColocacaoDeLonasPlasticas,
-            chamado.processoSolicitacaoDeVistorias,
+            chamado.processo_numero,
+            chamado.solicitacao_data,
+            chamado.solicitacao_hora,
+            chamado.solicitacao_descricao,
+            chamado.solicitacao_regional,
+            chamado.solicitacao_bairro,
+            chamado.solicitacao_localidade,
+            chamado.solicitacao_endereco,
+            chamado.solicitacao_roteiro,
+            chamado.rpa_codigo,
+            chamado.rpa_nome,
+            chamado.solicitacao_microregiao,
+            chamado.solicitacao_plantao,
+            chamado.processo_situacao,
+            chamado.processo_tipo,
+            chamado.processo_origem,
+            chamado.processo_solicitacao_colocacao_de_lonas_plasticas,
+            chamado.processo_solicitacao_vistoria,
             chamado.endUnico
         )
 

@@ -2,6 +2,7 @@ micronaut:
   application:
     name: datapublisher
     server:
+      cors: true
       max-request-size: 10GB
       multipart:
         max-file-size: XXXMB
@@ -10,7 +11,10 @@ micronaut:
         location: /tmp
 
 api-flask:
-  url:  http://5380-34-83-77-16.ngrok.io/
+  url:  http://057a-34-125-230-13.ngrok.io/
+
+jackson:
+  bean-introspection-module: true
 
 netty:
   default:

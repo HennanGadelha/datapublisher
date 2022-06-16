@@ -55,6 +55,7 @@ dependencies {
     implementation("com.ongres.scram:client:2.1")
     implementation("javax.annotation:javax.annotation-api")
 
+
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
 }
